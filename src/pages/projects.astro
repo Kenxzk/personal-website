@@ -2,29 +2,55 @@
 // src/pages/projects.astro
 import Layout from '../layouts/Layout.astro';
 ---
-<Layout title="Projects | Ken Zhong">
+<Layout title="Projects | Xiaokun (Ken) Zhong">
   <main class="max-w-4xl mx-auto px-6">
-    <h1 class="text-4xl font-bold">Projects & Research</h1>
+    <h1 class="text-4xl font-bold">Research & Projects</h1>
+    <p class="mt-2 text-lg text-neutral-500">
+      A selection of my research and engineering work.
+    </p>
 
     <div class="mt-8 border-t border-neutral-200 pt-8">
       <h2 class="text-2xl font-bold">Physics-Informed Neural Networks (PINNs)</h2>
+      <p class="text-md text-neutral-500 font-semibold">Advisor: Prof. Yaoqing Yang | Dartmouth College</p>
       <p class="mt-2 text-lg text-neutral-600">
-        Developing and analyzing novel architectures for PINNs to solve complex differential equations, with a focus on improving training stability and accuracy.
+        Investigating the core properties of PINNs to better understand their training dynamics and predictive capabilities. My work involves analyzing phase transitions and loss landscapes to improve model convergence, as well as studying the impact of floating-point precision in optimizers like L-BFGS.
       </p>
       <div class="mt-4 flex gap-4">
-        <a href="#" class="text-blue-600 hover:underline">Paper Link</a>
+        <a href="#" class="text-blue-600 hover:underline">Research Log</a>
         <a href="#" class="text-blue-600 hover:underline">GitHub</a>
       </div>
     </div>
 
     <div class="mt-8 border-t border-neutral-200 pt-8">
-      <h2 class="text-2xl font-bold">Numerical Analysis of L-BFGS Precision</h2>
+      <h2 class="text-2xl font-bold">GPT-Enhanced PINNs for Solving PDEs</h2>
+      <p class="text-md text-neutral-500 font-semibold">Advisor: Prof. Zhichao PENG | HKUST</p>
       <p class="mt-2 text-lg text-neutral-600">
-        Investigating the impact of floating-point precision errors on the convergence and stability of optimization algorithms like L-BFGS, inspired by the observations in the paper "The Ugly Duckling."
+        Developing a novel framework that integrates Large Language Models (like GPT) with Physics-Informed Neural Networks. The goal is to leverage the reasoning capabilities of LLMs to automatically formulate and solve complex systems of partial differential equations (PDEs).
       </p>
       <div class="mt-4 flex gap-4">
-        <a href="#" class="text-blue-600 hover:underline">Research Log</a>
         <a href="#" class="text-blue-600 hover:underline">GitHub</a>
+      </div>
+    </div>
+
+    <div class="mt-8 border-t border-neutral-200 pt-8">
+      <h2 class="text-2xl font-bold">Deep Learning for MRI Reconstruction</h2>
+      <p class="text-md text-neutral-500 font-semibold">Advisor: Prof. Hao Chen | HKUST UROP</p>
+      <p class="mt-2 text-lg text-neutral-600">
+        Designed and trained deep learning models to accelerate medical image analysis. My primary contribution was focused on using convolutional neural networks for the rapid reconstruction of 3D human models from 2D MRI slices.
+      </p>
+      <div class="mt-4 flex gap-4">
+        <a href="#" class="text-blue-600 hover:underline">Paper</a>
+      </div>
+    </div>
+
+    <div class="mt-8 border-t border-neutral-200 pt-8">
+      <h2 class="text-2xl font-bold">HKUST RoboMaster Team</h2>
+      <p class="text-md text-neutral-500 font-semibold">Software Engineer</p>
+      <p class="mt-2 text-lg text-neutral-600">
+        As a member of the university robotics team, I developed a computer vision system for QR code scanning and target identification using Python and OpenCV. I also programmed low-level motor controls and sensor integrations in C++ for our autonomous robot.
+      </p>
+      <div class="mt-4 flex gap-4">
+        <a href="#" class="text-blue-600 hover:underline">Team Page</a>
       </div>
     </div>
 
