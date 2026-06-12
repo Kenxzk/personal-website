@@ -1,25 +1,342 @@
 ---
-// src/pages/index.astro
 import Layout from '../layouts/Layout.astro';
+
+const profileLinks = [
+	{ label: 'CV', href: '/resume.pdf', primary: true },
+	{ label: 'GitHub', href: 'https://github.com/Kenxzk', external: true },
+	{ label: 'Google Scholar', href: 'https://scholar.google.com/citations?user=wLJvNMoAAAAJ', external: true },
+	{ label: 'LinkedIn', href: 'https://www.linkedin.com/in/xiaokun-ken-zhong/', external: true },
+	{ label: 'Email', href: 'mailto:xzhongal@berkeley.edu' },
+];
+
+const highlights = [
+	{
+		kicker: 'Publication',
+		title: 'ICML 2026 scientific ML paper',
+		description:
+			'Co-first author on work identifying multi-regime failure modes in scientific machine learning and matching optimization strategies to those regimes.',
+		link: { label: 'Read arXiv', href: 'https://arxiv.org/abs/2605.29153' },
+	},
+	{
+		kicker: 'Scientific ML',
+		title: 'Regime-specific PINN optimization',
+		description:
+			'Designed Newton-CG optimization pipelines in PyTorch for challenging PDE settings, improving solution accuracy and training stability across benchmarks.',
+	},
+	{
+		kicker: 'Research Engineering',
+		title: 'Scalable experiment infrastructure',
+		description:
+			'Built Slurm-based workflows for large ablation studies and reproducible evaluation of scientific AI systems on HPC clusters.',
+	},
+];
+
+const news = [
+	{
+		date: 'Jun 2026',
+		text: 'Paper accepted to ICML 2026.',
+	},
+	{
+		date: 'May 2026',
+		text: 'Completed BSc in Mathematics, Computer Science Track, at HKUST.',
+	},
+	{
+		date: '2025-2026',
+		text: 'Conducted scientific machine learning research with Dartmouth and Berkeley collaborators.',
+	},
+];
+
+const publications = [
+	{
+		title:
+			'Unveiling Multi-regime Patterns in SciML: Distinct Failure Modes and Regime-specific Optimization',
+		venue: 'ICML 2026',
+		authors: 'Y. Wang*, Y. Hu*, X. Zhong* et al.',
+		note: '* Equal contribution',
+		links: [
+			{ label: 'arXiv', href: 'https://arxiv.org/abs/2605.29153' },
+			{ label: 'Code', href: 'https://github.com/leastima/sciml_multi_regime' },
+		],
+	},
+];
+
+const experience = [
+	{
+		role: 'Research Engineer, AI Systems & Scientific ML',
+		org: 'Dartmouth College & UC Berkeley',
+		date: 'Feb 2025 - Present',
+		location: 'Remote / Berkeley, CA',
+		points: [
+			'Investigated failure modes and training instability in scientific AI systems under stiff PDE and other challenging regimes.',
+			'Implemented second-order optimization pipelines in PyTorch and scaled reproducible experiments on Slurm-based HPC clusters.',
+		],
+	},
+	{
+		role: 'Research Engineer, Medical Imaging AI',
+		org: 'HKUST Undergraduate Research Program',
+		date: 'Feb 2023 - May 2025',
+		location: 'Hong Kong',
+		points: [
+			'Developed deep learning workflows for MRI reconstruction and 3D volumetric modeling from sparse medical data.',
+			'Improved Python and C++ data processing pipelines for faster experimentation on large imaging datasets.',
+		],
+	},
+	{
+		role: 'BSc in Mathematics, Computer Science Track',
+		org: 'Hong Kong University of Science & Technology',
+		date: 'Sep 2022 - Jun 2026',
+		location: 'Hong Kong',
+		points: [
+			'Coursework includes differential equations, artificial intelligence, and probability theory.',
+			'Visiting student in Computer Science & Mathematics at UC Berkeley from Dec 2025 to May 2026.',
+		],
+	},
+];
+
+const projects = [
+	{
+		title: 'Regime-specific Optimization for Scientific ML',
+		summary:
+			'Optimization and evaluation pipelines for PINNs and related scientific AI systems under difficult training regimes.',
+		tags: ['PyTorch', 'Newton-CG', 'PINNs', 'Slurm'],
+		links: [{ label: 'arXiv', href: 'https://arxiv.org/abs/2605.29153' }],
+	},
+	{
+		title: 'Medical Imaging AI',
+		summary:
+			'Deep learning models and data pipelines for MRI reconstruction and 3D volumetric modeling from sparse medical data.',
+		tags: ['Python', 'C++', 'Medical imaging', 'Deep learning'],
+		links: [],
+	},
+	{
+		title: 'Secure Network Tunneling & Transport Optimization',
+		summary:
+			'Cross-region networking system using TLS-based transport and system-level tuning for reliability and latency analysis.',
+		tags: ['Linux', 'TLS', 'Networking', 'Systems'],
+		links: [],
+	},
+	{
+		title: 'Autonomous Robotics Vision System',
+		summary:
+			'Real-time computer vision and embedded control work for target acquisition in RoboMaster robotics.',
+		tags: ['OpenCV', 'Python', 'C++', 'STM32'],
+		links: [],
+	},
+];
 ---
 
-<Layout title="Xiaokun (Ken) Zhong | Home">
-	<main class="max-w-4xl mx-auto px-6 py-24">
-		<section class="text-center">
-			<h1 class="text-5xl md:text-7xl font-bold leading-tight">
-				Xiaokun (Ken) Zhong
-			</h1>
-			<p class="mt-4 text-lg md:text-xl text-neutral-500">
-				Computer Science & Mathematics at HKUST. <br />
-				Conducting research in Scientific Machine Learning at Dartmouth & Berkeley.
-			</p>
-			<div class="mt-8 flex justify-center gap-4">
-				<a href="/projects" class="bg-neutral-800 text-white px-5 py-2 rounded-lg hover:bg-neutral-700 transition">
-					Projects
-				</a>
-				<a href="/resume.pdf" class="bg-neutral-100 text-neutral-800 px-5 py-2 rounded-lg hover:bg-neutral-200 transition">
-					Resume
-				</a>
+<Layout
+	title="Xiaokun (Ken) Zhong | ML Researcher & Engineer"
+	description="Xiaokun (Ken) Zhong is an ML researcher and engineer working on scientific machine learning, AI systems, and research engineering."
+>
+	<main>
+		<section class="mx-auto max-w-5xl px-6 pb-14 pt-10 sm:pb-18 sm:pt-16">
+			<div class="max-w-3xl">
+				<p class="text-sm font-semibold uppercase tracking-[0.18em] text-teal-700">
+					ML Researcher & Engineer
+				</p>
+				<h1 class="mt-5 text-4xl font-semibold tracking-normal text-neutral-950 sm:text-5xl">
+					Xiaokun (Ken) Zhong
+				</h1>
+				<p class="mt-5 max-w-2xl text-xl leading-8 text-neutral-700">
+					I work on scientific machine learning, foundation models / AI systems, and research engineering for reliable model training and evaluation.
+				</p>
+				<p class="mt-4 text-base leading-7 text-neutral-600">
+					CS & Mathematics @ HKUST; research experience at Dartmouth and Berkeley.
+				</p>
+				<div class="mt-8 flex flex-wrap gap-3" aria-label="Profile links">
+					{profileLinks.map((link) =>
+						link.href ? (
+							<a
+								href={link.href}
+								target={link.external ? '_blank' : undefined}
+								rel={link.external ? 'noreferrer' : undefined}
+								class:list={[
+									'inline-flex min-h-11 items-center rounded-md px-4 text-sm font-semibold transition focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-teal-700',
+									link.primary
+										? 'bg-neutral-950 text-white hover:bg-neutral-800'
+										: 'border border-neutral-300 text-neutral-800 hover:border-teal-700 hover:text-teal-800',
+								]}
+							>
+								{link.label}
+							</a>
+						) : (
+							<span class="inline-flex min-h-11 items-center gap-2 rounded-md border border-dashed border-neutral-300 px-4 text-sm font-semibold text-neutral-500" aria-disabled="true">
+								{link.label}
+								<span class="text-xs font-medium uppercase text-teal-700">{link.note}</span>
+							</span>
+						)
+					)}
+				</div>
+			</div>
+		</section>
+
+		<section id="highlights" class="border-t border-neutral-200 bg-white">
+			<div class="mx-auto max-w-5xl px-6 py-12 sm:py-14">
+				<div class="flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
+					<div>
+						<p class="text-sm font-semibold uppercase tracking-[0.16em] text-teal-700">Highlights</p>
+						<h2 class="mt-2 text-2xl font-semibold text-neutral-950">Focused research signals</h2>
+					</div>
+					<p class="max-w-xl text-sm leading-6 text-neutral-600">
+						A compact view of the work most relevant to research collaborators and ML hiring teams.
+					</p>
+				</div>
+				<div class="mt-8 grid gap-4 md:grid-cols-3">
+					{highlights.map((item) => (
+						<article class="rounded-lg border border-neutral-200 bg-neutral-50 p-5">
+							<p class="text-xs font-semibold uppercase tracking-[0.14em] text-teal-700">{item.kicker}</p>
+							<h3 class="mt-3 text-lg font-semibold text-neutral-950">{item.title}</h3>
+							<p class="mt-3 text-sm leading-6 text-neutral-600">{item.description}</p>
+							{item.link && (
+								<a class="mt-4 inline-flex text-sm font-semibold text-teal-800 underline-offset-4 hover:underline focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-teal-700" href={item.link.href} target="_blank" rel="noreferrer">
+									{item.link.label}
+								</a>
+							)}
+						</article>
+					))}
+				</div>
+			</div>
+		</section>
+
+		<section id="news" class="border-t border-neutral-200">
+			<div class="mx-auto grid max-w-5xl gap-8 px-6 py-12 sm:py-14 md:grid-cols-[220px_1fr]">
+				<div>
+					<p class="text-sm font-semibold uppercase tracking-[0.16em] text-teal-700">News</p>
+					<h2 class="mt-2 text-2xl font-semibold text-neutral-950">Recent updates</h2>
+				</div>
+				<ol class="space-y-5">
+					{news.map((item) => (
+						<li class="grid gap-2 border-b border-neutral-200 pb-5 sm:grid-cols-[120px_1fr]">
+							<time class="text-sm font-semibold text-neutral-500">{item.date}</time>
+							<p class="text-base leading-7 text-neutral-700">{item.text}</p>
+						</li>
+					))}
+				</ol>
+			</div>
+		</section>
+
+		<section id="publications" class="border-t border-neutral-200 bg-white">
+			<div class="mx-auto grid max-w-5xl gap-8 px-6 py-12 sm:py-14 md:grid-cols-[220px_1fr]">
+				<div>
+					<p class="text-sm font-semibold uppercase tracking-[0.16em] text-teal-700">Publications</p>
+					<h2 class="mt-2 text-2xl font-semibold text-neutral-950">Selected work</h2>
+				</div>
+				<div class="space-y-5">
+					{publications.map((publication) => (
+						<article class="rounded-lg border border-neutral-200 p-5">
+							<div class="flex flex-col gap-2 sm:flex-row sm:items-start sm:justify-between">
+								<h3 class="max-w-2xl text-lg font-semibold leading-7 text-neutral-950">{publication.title}</h3>
+								<p class="shrink-0 text-sm font-semibold text-teal-800">{publication.venue}</p>
+							</div>
+							<p class="mt-3 text-sm leading-6 text-neutral-700">{publication.authors}</p>
+							<p class="mt-1 text-xs text-neutral-500">{publication.note}</p>
+							<div class="mt-4 flex flex-wrap gap-3">
+								{publication.links.map((link) =>
+									link.href ? (
+										<a class="inline-flex min-h-10 items-center rounded-md border border-neutral-300 px-3 text-sm font-semibold text-neutral-800 hover:border-teal-700 hover:text-teal-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-teal-700" href={link.href} target="_blank" rel="noreferrer">
+											{link.label}
+										</a>
+									) : (
+										<span class="inline-flex min-h-10 items-center rounded-md border border-dashed border-neutral-300 px-3 text-sm font-semibold text-neutral-500" aria-disabled="true">
+											{link.label}
+										</span>
+									)
+								)}
+							</div>
+						</article>
+					))}
+				</div>
+			</div>
+		</section>
+
+		<section id="experience" class="border-t border-neutral-200">
+			<div class="mx-auto grid max-w-5xl gap-8 px-6 py-12 sm:py-14 md:grid-cols-[220px_1fr]">
+				<div>
+					<p class="text-sm font-semibold uppercase tracking-[0.16em] text-teal-700">Experience</p>
+					<h2 class="mt-2 text-2xl font-semibold text-neutral-950">Research and education</h2>
+				</div>
+				<div class="space-y-7">
+					{experience.map((item) => (
+						<article class="border-b border-neutral-200 pb-7 last:border-b-0 last:pb-0">
+							<div class="flex flex-col gap-2 sm:flex-row sm:items-start sm:justify-between">
+								<div>
+									<h3 class="text-lg font-semibold text-neutral-950">{item.role}</h3>
+									<p class="mt-1 text-sm font-medium text-neutral-700">{item.org}</p>
+								</div>
+								<div class="text-left sm:text-right">
+									<p class="text-sm font-semibold text-neutral-600">{item.date}</p>
+									<p class="mt-1 text-sm text-neutral-500">{item.location}</p>
+								</div>
+							</div>
+							<ul class="mt-4 space-y-2">
+								{item.points.map((point) => (
+									<li class="flex gap-3 text-sm leading-6 text-neutral-700">
+										<span class="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-teal-700"></span>
+										<span>{point}</span>
+									</li>
+								))}
+							</ul>
+						</article>
+					))}
+				</div>
+			</div>
+		</section>
+
+		<section id="projects" class="border-t border-neutral-200 bg-white">
+			<div class="mx-auto max-w-5xl px-6 py-12 sm:py-14">
+				<div class="max-w-2xl">
+					<p class="text-sm font-semibold uppercase tracking-[0.16em] text-teal-700">Selected Projects</p>
+					<h2 class="mt-2 text-2xl font-semibold text-neutral-950">Applied research and systems work</h2>
+				</div>
+				<div class="mt-8 grid gap-4 md:grid-cols-2">
+					{projects.map((project) => (
+						<article class="rounded-lg border border-neutral-200 p-5">
+							<h3 class="text-lg font-semibold text-neutral-950">{project.title}</h3>
+							<p class="mt-3 text-sm leading-6 text-neutral-700">{project.summary}</p>
+							<div class="mt-4 flex flex-wrap gap-2">
+								{project.tags.map((tag) => (
+									<span class="rounded-full border border-neutral-200 bg-neutral-50 px-3 py-1 text-xs font-medium text-neutral-600">{tag}</span>
+								))}
+							</div>
+							{project.links.length > 0 && (
+								<div class="mt-4 flex flex-wrap gap-3">
+									{project.links.map((link) => (
+										<a class="text-sm font-semibold text-teal-800 underline-offset-4 hover:underline focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-teal-700" href={link.href} target="_blank" rel="noreferrer">
+											{link.label}
+										</a>
+									))}
+								</div>
+							)}
+						</article>
+					))}
+				</div>
+			</div>
+		</section>
+
+		<section id="contact" class="border-t border-neutral-200">
+			<div class="mx-auto max-w-5xl px-6 py-12 sm:py-14">
+				<div class="rounded-lg border border-neutral-200 bg-neutral-950 p-6 text-white sm:p-8">
+					<p class="text-sm font-semibold uppercase tracking-[0.16em] text-teal-300">Contact</p>
+					<h2 class="mt-3 text-2xl font-semibold">Research collaborations and ML roles</h2>
+					<p class="mt-3 max-w-2xl text-sm leading-6 text-neutral-300">
+						I am interested in scientific machine learning, reliable AI systems, and research engineering work that connects model behavior with scalable experimentation.
+					</p>
+					<div class="mt-6 flex flex-wrap gap-3">
+						<a class="inline-flex min-h-11 items-center rounded-md bg-white px-4 text-sm font-semibold text-neutral-950 hover:bg-neutral-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white" href="mailto:xzhongal@berkeley.edu">
+							xzhongal@berkeley.edu
+						</a>
+						<a class="inline-flex min-h-11 items-center rounded-md border border-neutral-700 px-4 text-sm font-semibold text-white hover:border-teal-300 hover:text-teal-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white" href="https://github.com/Kenxzk" target="_blank" rel="noreferrer">
+							GitHub
+						</a>
+						<a class="inline-flex min-h-11 items-center rounded-md border border-neutral-700 px-4 text-sm font-semibold text-white hover:border-teal-300 hover:text-teal-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white" href="https://www.linkedin.com/in/xiaokun-ken-zhong/" target="_blank" rel="noreferrer">
+							LinkedIn
+						</a>
+						<a class="inline-flex min-h-11 items-center rounded-md border border-neutral-700 px-4 text-sm font-semibold text-white hover:border-teal-300 hover:text-teal-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white" href="/resume.pdf">
+							CV
+						</a>
+					</div>
+				</div>
 			</div>
 		</section>
 	</main>
