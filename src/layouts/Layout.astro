@@ -9,7 +9,7 @@ export interface Props {
 
 const {
 	title,
-	description = 'Xiaokun (Ken) Zhong is an ML researcher and engineer working on scientific machine learning, AI systems, and research engineering.',
+	description = 'Xiaokun (Ken) Zhong studies optimization and model evaluation in scientific machine learning, with ongoing research in SciML autoresearch.',
 } = Astro.props;
 ---
 
@@ -34,6 +34,7 @@ const {
 		/>
 	</head>
 	<body class="min-h-screen bg-neutral-50 text-neutral-900 antialiased">
+		<a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:left-6 focus:top-2 focus:z-10 focus:bg-white focus:p-3 focus:text-teal-800">Skip to content</a>
 		<Header />
 		<slot />
 	</body>

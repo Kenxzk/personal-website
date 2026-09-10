@@ -9,28 +9,6 @@ const profileLinks = [
 	{ label: 'Email', href: 'mailto:xzhongal@berkeley.edu' },
 ];
 
-const highlights = [
-	{
-		kicker: 'Publication',
-		title: 'ICML 2026 ML optimization paper',
-		description:
-			'Co-first author on work analyzing failure modes in machine learning models under challenging training regimes and designing regime-specific optimization strategies.',
-		link: { label: 'Read arXiv', href: 'https://arxiv.org/abs/2605.29153' },
-	},
-	{
-		kicker: 'ML Optimization',
-		title: 'Reliable training under difficult regimes',
-		description:
-			'Built second-order optimization pipelines in PyTorch to improve model accuracy and training stability across benchmark tasks.',
-	},
-	{
-		kicker: 'ML Systems',
-		title: 'Scalable experiment infrastructure',
-		description:
-			'Built Slurm-based workflows for large ablation studies, reproducible evaluation, and model behavior analysis on HPC clusters.',
-	},
-];
-
 const news = [
 	{
 		date: 'May 2026',
@@ -95,13 +73,6 @@ const experience = [
 
 const projects = [
 	{
-		title: 'Regime-specific Optimization for Scientific ML',
-		summary:
-			'Optimization and evaluation pipelines for PINNs and related scientific AI systems under difficult training regimes.',
-		tags: ['PyTorch', 'Newton-CG', 'PINNs', 'Slurm'],
-		links: [{ label: 'arXiv', href: 'https://arxiv.org/abs/2605.29153' }],
-	},
-	{
 		title: 'Medical Imaging AI',
 		summary:
 			'Deep learning models and data pipelines for MRI reconstruction and 3D volumetric modeling from sparse medical data.',
@@ -127,9 +98,9 @@ const projects = [
 
 <Layout
 	title="Xiaokun (Ken) Zhong | ML Researcher & Engineer"
-	description="Xiaokun (Ken) Zhong is an ML researcher and engineer working on scientific machine learning, AI systems, and research engineering."
+	description="Xiaokun (Ken) Zhong studies optimization and model evaluation in scientific machine learning, with ongoing research in SciML autoresearch."
 >
-	<main>
+	<main id="main-content">
 		<section class="mx-auto max-w-5xl px-6 pb-14 pt-10 sm:pb-18 sm:pt-16">
 			<div class="max-w-3xl">
 				<p class="text-sm font-semibold uppercase tracking-[0.18em] text-teal-700">
@@ -139,7 +110,13 @@ const projects = [
 					Xiaokun (Ken) Zhong
 				</h1>
 				<p class="mt-5 max-w-2xl text-xl leading-8 text-neutral-700">
-					I work on machine learning systems, scalable model evaluation, and reliable training methods, with research experience in scientific AI and optimization.
+					Optimization, Evaluation & Scientific Discovery
+				</p>
+				<p class="mt-5 max-w-2xl text-base leading-7 text-neutral-700">
+					I study how machine learning models fail and how to improve them through optimization and systematic evaluation. My research focuses on training dynamics and failure modes in scientific machine learning.
+				</p>
+				<p class="mt-4 max-w-2xl text-base leading-7 text-neutral-600">
+					I’m interested in systems that use reliable evaluation and experimental feedback to guide the next experiment and improve their methods. I’m currently working on SciML autoresearch.
 				</p>
 				<p class="mt-4 text-base leading-7 text-neutral-600">
 					Research Engineer in ML Systems & Scientific AI.<br />
@@ -173,63 +150,33 @@ const projects = [
 			</div>
 		</section>
 
-		<section id="highlights" class="border-t border-neutral-200 bg-white">
-			<div class="mx-auto max-w-5xl px-6 py-12 sm:py-14">
-				<div class="flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
-					<div>
-						<p class="text-sm font-semibold uppercase tracking-[0.16em] text-teal-700">Highlights</p>
-						<h2 class="mt-2 text-2xl font-semibold text-neutral-950">Selected research signals</h2>
-					</div>
-					<p class="max-w-xl text-sm leading-6 text-neutral-600">
-						A compact view of the work most relevant to research collaborators and ML hiring teams.
-					</p>
-				</div>
-				<div class="mt-8 grid gap-4 md:grid-cols-3">
-					{highlights.map((item) => (
-						<article class="rounded-lg border border-neutral-200 bg-neutral-50 p-5">
-							<p class="text-xs font-semibold uppercase tracking-[0.14em] text-teal-700">{item.kicker}</p>
-							<h3 class="mt-3 text-lg font-semibold text-neutral-950">{item.title}</h3>
-							<p class="mt-3 text-sm leading-6 text-neutral-600">{item.description}</p>
-							{item.link && (
-								<a class="mt-4 inline-flex text-sm font-semibold text-teal-800 underline-offset-4 hover:underline focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-teal-700" href={item.link.href} target="_blank" rel="noreferrer">
-									{item.link.label}
-								</a>
-							)}
-						</article>
-					))}
-				</div>
-			</div>
-		</section>
-
-		<section id="news" class="border-t border-neutral-200">
+		<section id="research" class="border-t border-neutral-200 bg-white">
 			<div class="mx-auto grid max-w-5xl gap-8 px-6 py-12 sm:py-14 md:grid-cols-[220px_1fr]">
 				<div>
-					<p class="text-sm font-semibold uppercase tracking-[0.16em] text-teal-700">News</p>
-					<h2 class="mt-2 text-2xl font-semibold text-neutral-950">Recent updates</h2>
+					<p class="text-sm font-semibold uppercase tracking-[0.16em] text-teal-700">Research</p>
+					<h2 class="mt-2 text-2xl font-semibold text-neutral-950">Understanding and improving learning systems</h2>
 				</div>
-				<ol class="space-y-5">
-					{news.map((item) => (
-						<li class="grid gap-2 border-b border-neutral-200 pb-5 sm:grid-cols-[120px_1fr]">
-							<time class="text-sm font-semibold text-neutral-500">{item.date}</time>
-							<p class="text-base leading-7 text-neutral-700">{item.text}</p>
-						</li>
-					))}
-				</ol>
-			</div>
-		</section>
-
-		<section id="publications" class="border-t border-neutral-200 bg-white">
-			<div class="mx-auto grid max-w-5xl gap-8 px-6 py-12 sm:py-14 md:grid-cols-[220px_1fr]">
-				<div>
-					<p class="text-sm font-semibold uppercase tracking-[0.16em] text-teal-700">Publications</p>
-					<h2 class="mt-2 text-2xl font-semibold text-neutral-950">Selected work</h2>
-				</div>
-				<div class="space-y-5">
+				<div class="space-y-8">
 					{publications.map((publication) => (
-						<article class="rounded-lg border border-neutral-200 p-5">
-							<div class="flex flex-col gap-2 sm:flex-row sm:items-start sm:justify-between">
-								<h3 class="max-w-2xl text-lg font-semibold leading-7 text-neutral-950">{publication.title}</h3>
-								<p class="shrink-0 text-sm font-semibold text-teal-800">{publication.venue}</p>
+						<article id="publications" class="border-t-2 border-teal-700 pt-6">
+							<p class="text-sm font-semibold text-teal-800">Published research · {publication.venue}</p>
+							<h3 class="mt-3 text-2xl font-semibold leading-8 text-neutral-950">Understanding when—and why—optimization methods fail</h3>
+							<dl class="mt-6 space-y-5">
+								<div>
+									<dt class="text-sm font-semibold text-neutral-950">Research question</dt>
+									<dd class="mt-1 text-base leading-7 text-neutral-700">Why do scientific ML models fail under different training conditions, and which optimization methods help in each regime?</dd>
+								</div>
+								<div>
+									<dt class="text-sm font-semibold text-neutral-950">Key finding</dt>
+									<dd class="mt-1 text-base leading-7 text-neutral-700">Across the SciML models studied, we identify three distinct training regimes. Optimization effectiveness depends on the regime: no single method performs well across all three.</dd>
+								</div>
+								<div>
+									<dt class="text-sm font-semibold text-neutral-950">My contribution</dt>
+									<dd class="mt-1 text-base leading-7 text-neutral-700">As a co-first author, I investigated failure modes, implemented second-order optimization pipelines in PyTorch, and built reproducible Slurm workflows for ablation studies and model behavior analysis.</dd>
+								</div>
+							</dl>
+							<div class="mt-7 border-t border-neutral-200 pt-5">
+								<h4 class="text-base font-semibold leading-7 text-neutral-950">{publication.title}</h4>
 							</div>
 							<p class="mt-3 text-sm leading-6 text-neutral-700">{publication.authors}</p>
 							<p class="mt-1 text-xs text-neutral-500">{publication.note}</p>
@@ -248,7 +195,30 @@ const projects = [
 							</div>
 						</article>
 					))}
+					<article class="rounded-lg border border-teal-200 bg-teal-50/50 p-6 sm:p-7">
+						<p class="text-sm font-semibold text-teal-800">Ongoing research</p>
+						<h3 class="mt-3 text-2xl font-semibold text-neutral-950">SciML Autoresearch</h3>
+						<p class="mt-4 text-base leading-7 text-neutral-700">I’m working on automated research for scientific machine learning, extending my interests in optimization and model evaluation toward automated scientific discovery.</p>
+						<p class="mt-4 text-sm leading-6 text-neutral-600">Work in progress · Paper not yet public.</p>
+					</article>
 				</div>
+			</div>
+		</section>
+
+		<section id="news" class="border-t border-neutral-200">
+			<div class="mx-auto grid max-w-5xl gap-8 px-6 py-12 sm:py-14 md:grid-cols-[220px_1fr]">
+				<div>
+					<p class="text-sm font-semibold uppercase tracking-[0.16em] text-teal-700">News</p>
+					<h2 class="mt-2 text-2xl font-semibold text-neutral-950">Recent updates</h2>
+				</div>
+				<ol class="space-y-5">
+					{news.map((item) => (
+						<li class="grid gap-2 border-b border-neutral-200 pb-5 sm:grid-cols-[120px_1fr]">
+							<time class="text-sm font-semibold text-neutral-500">{item.date}</time>
+							<p class="text-base leading-7 text-neutral-700">{item.text}</p>
+						</li>
+					))}
+				</ol>
 			</div>
 		</section>
 
@@ -288,28 +258,15 @@ const projects = [
 		<section id="projects" class="border-t border-neutral-200 bg-white">
 			<div class="mx-auto max-w-5xl px-6 py-12 sm:py-14">
 				<div class="max-w-2xl">
-					<p class="text-sm font-semibold uppercase tracking-[0.16em] text-teal-700">Selected Projects</p>
-					<h2 class="mt-2 text-2xl font-semibold text-neutral-950">Applied research and systems work</h2>
+					<p class="text-sm font-semibold uppercase tracking-[0.16em] text-teal-700">Additional Projects</p>
+					<h2 class="mt-2 text-2xl font-semibold text-neutral-950">Other engineering work</h2>
 				</div>
-				<div class="mt-8 grid gap-4 md:grid-cols-2">
+				<div class="mt-7 divide-y divide-neutral-200">
 					{projects.map((project) => (
-						<article class="rounded-lg border border-neutral-200 p-5">
+						<article class="grid gap-3 py-6 first:pt-0 last:pb-0 md:grid-cols-[260px_1fr]">
 							<h3 class="text-lg font-semibold text-neutral-950">{project.title}</h3>
-							<p class="mt-3 text-sm leading-6 text-neutral-700">{project.summary}</p>
-							<div class="mt-4 flex flex-wrap gap-2">
-								{project.tags.map((tag) => (
-									<span class="rounded-full border border-neutral-200 bg-neutral-50 px-3 py-1 text-xs font-medium text-neutral-600">{tag}</span>
-								))}
-							</div>
-							{project.links.length > 0 && (
-								<div class="mt-4 flex flex-wrap gap-3">
-									{project.links.map((link) => (
-										<a class="text-sm font-semibold text-teal-800 underline-offset-4 hover:underline focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-teal-700" href={link.href} target="_blank" rel="noreferrer">
-											{link.label}
-										</a>
-									))}
-								</div>
-							)}
+							<p class="text-base leading-7 text-neutral-600">{project.summary}</p>
+
 						</article>
 					))}
 				</div>
@@ -322,7 +279,7 @@ const projects = [
 					<p class="text-sm font-semibold uppercase tracking-[0.16em] text-teal-300">Contact</p>
 					<h2 class="mt-3 text-2xl font-semibold">Research collaborations and ML roles</h2>
 					<p class="mt-3 max-w-2xl text-sm leading-6 text-neutral-300">
-						I am interested in reliable AI systems, scalable model evaluation, and research engineering work, with applications in scientific machine learning and model behavior analysis.
+						I’m interested in research collaborations and ML roles in optimization, model evaluation, and automated scientific discovery.
 					</p>
 					<div class="mt-6 flex flex-wrap gap-3">
 						<a class="inline-flex min-h-11 items-center rounded-md bg-white px-4 text-sm font-semibold text-neutral-950 hover:bg-neutral-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white" href="mailto:xzhongal@berkeley.edu">

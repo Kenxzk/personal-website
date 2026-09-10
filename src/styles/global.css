@@ -1,1 +1,18 @@
 @import "tailwindcss";
+
+@theme {
+  --font-sans: 'Inter', sans-serif;
+}
+
+html {
+  scroll-padding-top: 2rem;
+}
+
+body {
+  overflow-wrap: break-word;
+}
+
+::selection {
+  background: #ccfbf1;
+  color: #134e4a;
+}
