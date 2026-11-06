@@ -11,6 +11,14 @@ const profileLinks = [
 
 const news = [
 	{
+		date: 'Nov 2026',
+		text: 'Exploring computational protein design and the reliability of model-based screening through an independent competition project.',
+	},
+	{
+		date: 'Nov 2026',
+		text: 'Developing SciML AutoResearch: agent-assisted experiments with controlled evaluation on neural operator benchmarks.',
+	},
+	{
 		date: 'May 2026',
 		text: 'Our scientific ML paper was accepted to ICML 2026.',
 	},
@@ -29,13 +37,20 @@ const publications = [
 		title:
 			'Unveiling Multi-regime Patterns in SciML: Distinct Failure Modes and Regime-specific Optimization',
 		venue: 'ICML 2026',
-		authors: 'Y. Wang*, Y. Hu*, X. Zhong* et al.',
-		note: '* Equal contribution',
+		authors: 'Yuxin Wang*, Yuanzhe Hu*, Xiaokun Zhong* et al.',
+		note: '* Equal contribution · Co-first authors',
 		links: [
+			{ label: 'Proceedings', href: 'https://proceedings.mlr.press/v306/wang26cc.html' },
 			{ label: 'arXiv', href: 'https://arxiv.org/abs/2605.29153' },
 			{ label: 'Code', href: 'https://github.com/leastima/sciml_multi_regime' },
 		],
 	},
+];
+
+const researchWorkflow = [
+	{ title: 'Propose a change', detail: 'Constrain agent edits to the experiment code.' },
+	{ title: 'Run a controlled experiment', detail: 'Keep evaluation and training budgets fixed.' },
+	{ title: 'Evaluate and record', detail: 'Log the decision; check selected candidates across seeds.' },
 ];
 
 const experience = [
@@ -98,7 +113,7 @@ const projects = [
 
 <Layout
 	title="Xiaokun (Ken) Zhong | ML Researcher & Engineer"
-	description="Xiaokun (Ken) Zhong studies optimization and model evaluation in scientific machine learning, with ongoing research in SciML autoresearch."
+	description="Xiaokun (Ken) Zhong is an ML researcher and engineer, ICML 2026 co-first author, working on scientific ML, autonomous research, and computational protein design."
 >
 	<main id="main-content">
 		<section class="mx-auto max-w-5xl px-6 pb-14 pt-10 sm:pb-18 sm:pt-16">
@@ -110,18 +125,16 @@ const projects = [
 					Xiaokun (Ken) Zhong
 				</h1>
 				<p class="mt-5 max-w-2xl text-xl leading-8 text-neutral-700">
-					Optimization, Evaluation & Scientific Discovery
+					Scientific ML · Autonomous Research · AI for Biology
 				</p>
 				<p class="mt-5 max-w-2xl text-base leading-7 text-neutral-700">
-					I study how machine learning models fail and how to improve them through optimization and systematic evaluation. My research focuses on training dynamics and failure modes in scientific machine learning.
+					I study how machine learning models fail and build tools for systematic scientific experimentation. I’m a co-first author of an ICML 2026 paper on optimization failure modes in scientific machine learning.
 				</p>
 				<p class="mt-4 max-w-2xl text-base leading-7 text-neutral-600">
-					I’m interested in systems that use reliable evaluation and experimental feedback to guide the next experiment and improve their methods. I’m currently working on SciML autoresearch.
+					My work connects understanding ML failures, automating experiments, and applying ML to biological design. I’m developing SciML AutoResearch and exploring protein modeling and design, with a focus on reliable evaluation.
 				</p>
 				<p class="mt-4 text-base leading-7 text-neutral-600">
-					Research Engineer in ML Systems & Scientific AI.<br />
-					Research with Dartmouth and Berkeley collaborators.<br />
-					BSc Mathematics, Computer Science Track @ HKUST.
+					HKUST Mathematics graduate (Computer Science Track), with research experience alongside Dartmouth and UC Berkeley collaborators.
 				</p>
 				<div class="mt-8 flex flex-wrap gap-3" aria-label="Profile links">
 					{profileLinks.map((link) =>
@@ -154,7 +167,7 @@ const projects = [
 			<div class="mx-auto grid max-w-5xl gap-8 px-6 py-12 sm:py-14 md:grid-cols-[220px_1fr]">
 				<div>
 					<p class="text-sm font-semibold uppercase tracking-[0.16em] text-teal-700">Research</p>
-					<h2 class="mt-2 text-2xl font-semibold text-neutral-950">Understanding and improving learning systems</h2>
+					<h2 class="mt-2 text-2xl font-semibold text-neutral-950">From ML failures to scientific discovery</h2>
 				</div>
 				<div class="space-y-8">
 					{publications.map((publication) => (
@@ -168,7 +181,7 @@ const projects = [
 								</div>
 								<div>
 									<dt class="text-sm font-semibold text-neutral-950">Key finding</dt>
-									<dd class="mt-1 text-base leading-7 text-neutral-700">Across the SciML models studied, we identify three distinct training regimes. Optimization effectiveness depends on the regime: no single method performs well across all three.</dd>
+									<dd class="mt-1 text-base leading-7 text-neutral-700">Across physics-informed neural networks, neural operators, and neural ODEs, we identify three training regimes: well-trained, under-trained, and over-trained. Optimization effectiveness depends on the regime; no single method performs well across all three.</dd>
 								</div>
 								<div>
 									<dt class="text-sm font-semibold text-neutral-950">My contribution</dt>
@@ -195,11 +208,49 @@ const projects = [
 							</div>
 						</article>
 					))}
-					<article class="rounded-lg border border-teal-200 bg-teal-50/50 p-6 sm:p-7">
-						<p class="text-sm font-semibold text-teal-800">Ongoing research</p>
-						<h3 class="mt-3 text-2xl font-semibold text-neutral-950">SciML Autoresearch</h3>
-						<p class="mt-4 text-base leading-7 text-neutral-700">I’m working on automated research for scientific machine learning, extending my interests in optimization and model evaluation toward automated scientific discovery.</p>
-						<p class="mt-4 text-sm leading-6 text-neutral-600">Work in progress · Paper not yet public.</p>
+					<article id="sciml-autoresearch" class="rounded-lg border border-teal-200 bg-teal-50/50 p-6 sm:p-7">
+						<p class="text-sm font-semibold text-teal-800">Implemented workflow · Ongoing research</p>
+						<h3 class="mt-3 text-2xl font-semibold text-neutral-950">SciML AutoResearch</h3>
+						<p class="mt-4 text-base leading-7 text-neutral-700">I develop agent-assisted experiment workflows for scientific ML, including Fourier neural operators (FNOs) on Darcy flow and Transolver on ShapeNet-Car. The research question is how to turn experimental feedback into useful next experiments under controlled evaluation.</p>
+						<dl class="mt-5 space-y-4">
+							<div>
+								<dt class="text-sm font-semibold text-neutral-950">My contribution</dt>
+								<dd class="mt-1 text-base leading-7 text-neutral-700">PyTorch experiment controls with constrained agent edits, fixed evaluation protocols and training budgets, and experiment records tied to code revisions.</dd>
+							</div>
+							<div>
+								<dt class="text-sm font-semibold text-neutral-950">Evaluation</dt>
+								<dd class="mt-1 text-base leading-7 text-neutral-700">Completed benchmark runs include recorded keep-or-reject decisions and confirmation across random seeds. I’m studying how diagnostic feedback changes the search process; comparative findings remain unpublished.</dd>
+							</div>
+						</dl>
+						<figure class="mt-6 border-t border-teal-200 pt-5" aria-labelledby="workflow-caption">
+							<figcaption id="workflow-caption" class="text-sm font-semibold text-neutral-950">The experiment loop</figcaption>
+							<ol class="mt-4 grid gap-4 lg:grid-cols-3">
+								{researchWorkflow.map((step, index) => (
+									<li class="border-l-2 border-teal-300 pl-3">
+										<p class="text-xs font-semibold text-teal-800">0{index + 1}</p>
+										<p class="mt-1 text-sm font-semibold leading-5 text-neutral-950">{step.title}</p>
+										<p class="mt-2 text-sm leading-6 text-neutral-600">{step.detail}</p>
+									</li>
+								))}
+							</ol>
+						</figure>
+					</article>
+					<article id="protein-design" class="rounded-lg border border-neutral-200 p-6 sm:p-7">
+						<p class="text-sm font-semibold text-teal-800">Independent project · Computationally evaluated · Ongoing</p>
+						<h3 class="mt-3 text-2xl font-semibold text-neutral-950">Computational Protein Design</h3>
+						<p class="mt-4 text-base leading-7 text-neutral-700">An independent exploration of KRAS G12D peptide–MHC binder design for the Anthropic × Adaptyv 2026 Protein Design Competition, extending my work in scientific ML into AI for Biology.</p>
+						<dl class="mt-5 space-y-4">
+							<div>
+									<dt class="text-sm font-semibold text-neutral-950">What I built</dt>
+									<dd class="mt-1 text-base leading-7 text-neutral-700">Candidate-generation workflows using BoltzGen and SolubleMPNN, with Boltz-2 and ESMFold2 evaluation against the mutant target, wild-type target, and peptide-free control.</dd>
+								</div>
+								<div>
+									<dt class="text-sm font-semibold text-neutral-950">Experimental rigor</dt>
+									<dd class="mt-1 text-base leading-7 text-neutral-700">Sequence and structure checks, matched-seed comparisons, interface geometry analysis, and reproducible GPU runs with archived inputs and outputs. Current work tests the screening criteria against published binding references and an assay-reported nonbinding case.</dd>
+								</div>
+							</dl>
+						<p class="mt-5 border-t border-neutral-200 pt-4 text-sm leading-6 text-neutral-600">As of November 6, 2026: computational evaluation is ongoing; no competition submission or wet-lab binding validation.</p>
+						<a class="mt-4 inline-flex min-h-10 items-center rounded-md border border-neutral-300 px-3 text-sm font-semibold text-neutral-800 hover:border-teal-700 hover:text-teal-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-teal-700" href="https://proteinbase.com/competitions/anthropic-adaptyv-2026/challenges/pmhc" target="_blank" rel="noreferrer">Competition challenge</a>
 					</article>
 				</div>
 			</div>
@@ -279,7 +330,7 @@ const projects = [
 					<p class="text-sm font-semibold uppercase tracking-[0.16em] text-teal-300">Contact</p>
 					<h2 class="mt-3 text-2xl font-semibold">Research collaborations and ML roles</h2>
 					<p class="mt-3 max-w-2xl text-sm leading-6 text-neutral-300">
-						I’m interested in research collaborations and ML roles in optimization, model evaluation, and automated scientific discovery.
+						I’m looking for Research Engineer, ML Engineer, and early-career AI for Biology roles, especially in protein modeling, protein design, and ML-driven scientific discovery. I’m also open to broader AI research engineering roles and research collaborations.
 					</p>
 					<div class="mt-6 flex flex-wrap gap-3">
 						<a class="inline-flex min-h-11 items-center rounded-md bg-white px-4 text-sm font-semibold text-neutral-950 hover:bg-neutral-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white" href="mailto:xzhongal@berkeley.edu">
